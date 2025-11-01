@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # FastAPI Application
+  api:
+    build: .
+    container_name: fastapi-server
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_TYPE=mongodb
+      - MONGODB_URI=mongodb://mongodb:27017
+      - MONGODB_DB=dummydatabase
+    depends_on:
+      - mongodb
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=dummydatabase
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+
+  # PostgreSQL Database (Optional - uncomment to use)
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: postgres
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=dummydatabase
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+  # MySQL Database (Optional - uncomment to use)
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: mysql
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=rootpassword
+  #     - MYSQL_DATABASE=dummydatabase
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+  #   restart: unless-stopped
+
+volumes:
+  mongodb_data:
+  # postgres_data:
+  # mysql_data:
+

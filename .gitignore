@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+# Common virtual environment folder names (when created as separate folder)
+venv/
+env/
+ENV/
+.venv/
+VE/
+
+# Virtual environment files when created in current directory
+# Windows virtual environment files
+Scripts/
+activate.bat
+activate.ps1
+deactivate.bat
+python.exe
+pythonw.exe
+Lib/
+Include/
+
+# Linux/Mac virtual environment files
+bin/
+activate
+activate.csh
+activate.fish
+lib/
+include/
+
+# Common virtual environment files (both Windows and Linux/Mac)
+pyvenv.cfg
+pip-selfcheck.json
+site-packages/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables (keep template)
+.env
+.env.local
+.env.*.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker (keep compose file)
+.docker/
+
+# Temporary files
+*.tmp
+*.bak
+*~
